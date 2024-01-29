@@ -1,23 +1,26 @@
 {
-    "name": "@blameitonyourisp/js-template",
+    "name": "@blameitonyourisp/boutique",
     "version": "0.0.1",
-    "description": "Template repository for general javascript projects.",
+    "description": "A small and fashionable store for state and event management.",
     "keywords": [
-        "template",
-        "javascript"
+        "state-management",
+        "redaction",
+        "listener-pattern"
     ],
-    "homepage": "https://github.com/blameitonyourisp/js-template#readme",
+    "homepage": "https://github.com/blameitonyourisp/boutique#readme",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/blameitonyourisp/js-template.git"
+        "url": "git+https://github.com/blameitonyourisp/boutique.git"
     },
     "bugs": {
-        "url": "https://github.com/blameitonyourisp/js-template/issues"
+        "url": "https://github.com/blameitonyourisp/boutique/issues"
     },
     "author": "James Reid",
     "license": "MIT",
     "type": "module",
-    "bin": {},
+    "bin": {
+        "dist/package/index.js": "./dist/bin/index.js"
+    },
     "main": "./dist/package/index.js",
     "exports": {
         ".": "./dist/package/index.js",

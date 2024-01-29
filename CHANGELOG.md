@@ -1,5 +1,5 @@
 ---
-last-hash: INSERT_LAST_HASH_HERE
+last-hash: 06eab659955651166ebc73704f663779ce59141a
 last-tag: v0.0.1
 ---
 
