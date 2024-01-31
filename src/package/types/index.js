@@ -9,7 +9,8 @@
 //      - <https://spdx.org/licenses/MIT>
 
 /**
- * @file Package entrypoint.
+ * @ignore
+ * @file Export package script types.
  * @author James Reid
  */
 
@@ -20,4 +21,4 @@
 // @@no-body
 
 // @@exports
-export * from "./Boutique.js"
+export * from "./RedactionListener.js"

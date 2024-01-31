@@ -9,7 +9,7 @@
 //      - <https://spdx.org/licenses/MIT>
 
 /**
- * @file Package entrypoint.
+ * @file Redaction listener type declaration.
  * @author James Reid
  */
 
@@ -17,7 +17,18 @@
 
 // @@no-imports
 
-// @@no-body
+// @@body
+/**
+ * Redaction listener type.
+ *
+ * @typedef {object} RedactionListener
+ * @property {(detail:any) => void} func
+ * @property {string[]} deps
+ */
 
 // @@exports
-export * from "./Boutique.js"
+/**
+ * @ignore
+ * @type {RedactionListener}
+ */
+export let RedactionListener

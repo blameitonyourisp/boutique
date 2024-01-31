@@ -1,4 +1,4 @@
-type RedactionListener = {
+export type RedactionListener = {
     func: (detail: any) => void;
     deps: string[];
 };
@@ -15,7 +15,7 @@ type RedactionListener = {
  * @property {(detail:any) => void} func
  * @property {string[]} deps
  */
-declare class Boutique {
+export class Boutique {
     /**
      *
      * @param {any} state
@@ -73,5 +73,3 @@ declare class Boutique {
         tracer: any[];
     };
 }
-
-export { Boutique, type RedactionListener };
