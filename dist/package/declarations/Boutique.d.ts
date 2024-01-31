@@ -1,20 +1,3 @@
-export type RedactionListener = {
-    func: (detail: any) => void;
-    deps: string[];
-};
-/**
- * @file State store and manager class.
- * @author James Reid
- */
-/**
- * @todo Move types to separate typedef files.
- * @todo Prevent multiple details being passed to redaction.
- */
-/**
- * @typedef {object} RedactionListener
- * @property {(detail:any) => void} func
- * @property {string[]} deps
- */
 export class Boutique {
     /**
      *
@@ -73,3 +56,4 @@ export class Boutique {
         tracer: any[];
     };
 }
+import { RedactionListener } from "./types/index.js";

@@ -1,20 +1,27 @@
+/**
+ * Redaction listener type.
+ */
 type RedactionListener = {
     func: (detail: any) => void;
     deps: string[];
 };
 /**
- * @file State store and manager class.
+ * @file Redaction listener type declaration.
  * @author James Reid
  */
 /**
- * @todo Move types to separate typedef files.
- * @todo Prevent multiple details being passed to redaction.
- */
-/**
+ * Redaction listener type.
+ *
  * @typedef {object} RedactionListener
  * @property {(detail:any) => void} func
  * @property {string[]} deps
  */
+/**
+ * @ignore
+ * @type {RedactionListener}
+ */
+declare let RedactionListener: RedactionListener;
+
 declare class Boutique {
     /**
      *
@@ -74,4 +81,4 @@ declare class Boutique {
     };
 }
 
-export { Boutique, type RedactionListener };
+export { Boutique };
