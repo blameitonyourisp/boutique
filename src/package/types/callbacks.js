@@ -33,7 +33,7 @@ import { KeyedObject } from "./KeyedObject.js"
  * Listener callback.
  *
  * @callback listenerCb
- * @param {KeyedObject} detail
+ * @param {KeyedObject|void} detail
  * @returns {void}
  */
 
@@ -42,8 +42,8 @@ import { KeyedObject } from "./KeyedObject.js"
  *
  * @callback redactionInitCb
  * @param {KeyedObject} state
- * @param {KeyedObject} detail
- * @returns {KeyedObject}
+ * @param {KeyedObject} [detail]
+ * @returns {KeyedObject|void}
  */
 
 /**

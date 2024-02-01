@@ -46,7 +46,7 @@ class Boutique {
      */
     createRedaction(callback) {
         const { state, tracer } = this.proxy
-        return (detail = {}) => this.redact(tracer, callback(state, detail))
+        return detail => this.redact(tracer, callback(state, detail))
     }
 
     /**
@@ -56,7 +56,7 @@ class Boutique {
      */
     createListener(callback) {
         const { state, tracer } = this.proxy
-        const func = (/** @type {KeyedObject} */ detail) => {
+        const func = (/** @type {KeyedObject|void} */ detail) => {
             return callback(state)(detail)
         }
         callback(state)
@@ -88,12 +88,11 @@ class Boutique {
     /**
      *
      * @param {ProxyTrace[]} tracer
-     * @param {KeyedObject} detail
+     * @param {KeyedObject|void} detail
      * @param {RedactionListener[]} listeners
      * @returns {void}
      */
     redact(tracer, detail, listeners = []) {
-        if (!detail) { return }
         tracer.forEach(diff => {
             if (diff.value) {
                 let prop = this.state
