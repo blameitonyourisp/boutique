@@ -17,41 +17,50 @@
 
 // @@imports-types
 /* eslint-disable no-unused-vars -- Types only used in comments. */
-import { RedactionListener } from "./types/index.js"
+import {
+    listenerInitCb,
+    redactionInitCb,
+    redactionCb,
+    KeyedObject,
+    ProxyTrace,
+    RedactionListener
+} from "./types/index.js"
 /* eslint-enable no-unused-vars -- Close disable-enable pair. */
 
 // @@body
 class Boutique {
     /**
      *
-     * @param {any} state
+     * @param {KeyedObject} state
      */
     constructor(state) {
         /** @type {Object.<string,RedactionListener[]>} */
-        this.events = {}
+        this.evs = {}
         this.state = state
     }
 
     /**
      *
-     * @param {(state:any, detail:any) => any} callback
-     * @returns {(detail:any) => void}
+     * @param {redactionInitCb} callback
+     * @returns {redactionCb}
      */
     createRedaction(callback) {
         const { state, tracer } = this.proxy
-        return detail => this.redact(tracer, callback(state, detail))
+        return (detail = {}) => this.redact(tracer, callback(state, detail))
     }
 
     /**
      *
-     * @param {*} callback
+     * @param {listenerInitCb} callback
      * @returns {RedactionListener}
      */
-    createRedactionListener(callback) {
+    createListener(callback) {
         const { state, tracer } = this.proxy
-        const func = (/** @type {any} */ detail) => callback(state)(detail)
+        const func = (/** @type {KeyedObject} */ detail) => {
+            return callback(state)(detail)
+        }
         callback(state)
-        return { func, deps: tracer.filter(elem => elem.trim) }
+        return { func, deps: tracer.map(trace => trace.key) }
     }
 
     /**
@@ -59,9 +68,9 @@ class Boutique {
      * @param {RedactionListener} listener
      * @returns {void}
      */
-    addRedactionListener(listener) {
+    addListener(listener) {
         listener.deps.forEach(key => {
-            this.events[key] = [...this.events[key] || [], listener]
+            this.evs[key] = [...this.evs[key] || [], listener]
         })
     }
 
@@ -70,55 +79,56 @@ class Boutique {
      * @param {RedactionListener} listener
      * @returns {void}
      */
-    removeRedactionListener(listener) {
+    removeListener(listener) {
         listener.deps.forEach(/** @type {string} */ key => {
-            this.events[key] = this.events[key].filter(obj => obj !== listener)
+            this.evs[key] = this.evs[key].filter(obj => obj !== listener)
         })
     }
 
     /**
      *
-     * @param {[string, any][]} tracer
-     * @param {*} detail
+     * @param {ProxyTrace[]} tracer
+     * @param {KeyedObject} detail
      * @param {RedactionListener[]} listeners
      * @returns {void}
      */
     redact(tracer, detail, listeners = []) {
         if (!detail) { return }
         tracer.forEach(diff => {
-            let prop = this.state
-            diff[0].split(".").slice(1).reduce((acc, cur, index, arr) => {
-                if (!cur) { return acc }
-                index !== arr.length - 1 ? prop = prop[cur] || {}
-                    : prop[cur] = diff[1]
-                acc = `${acc}.${cur}`
-                listeners.push(...this.events[acc] || [])
-                return acc
-            }, "")
+            if (diff.value) {
+                let prop = this.state
+                diff.key.split(".").slice(1).reduce((acc, cur, index, arr) => {
+                    index !== arr.length - 1 ? prop = prop[cur] || {}
+                        : prop[cur] = diff.value
+                    acc = `${acc}.${cur}`
+                    listeners.push(...this.evs[acc] || [])
+                    return acc
+                }, "")
+            }
         });
         [...new Set(listeners)].forEach(listener => listener.func(detail))
     }
 
     /**
      *
-     * @param {any[]} tracer
+     * @param {ProxyTrace[]} tracer
      * @param {string} path
-     * @returns {ProxyHandler<object>}
+     * @returns {ProxyHandler<KeyedObject>}
      */
     handler(tracer, path = "") {
         /**
          *
-         * @param {any} target
+         * @param {KeyedObject} target
          * @param {string} prop
-         * @returns {any}
+         * @returns {KeyedObject|ProxyHandler<KeyedObject>}
          */
         const get = (target, prop) => {
-            const nestedPath = `${path}.${prop}`
-            path !== "" ? tracer.splice(- 1, 1, nestedPath)
-                : tracer.push(nestedPath)
+            const key = `${path}.${prop}`
+            path !== "" ? tracer.splice(- 1, 1, { key })
+                : tracer.push({ key })
             const value = target[prop]
             return typeof value !== "object" ? value
-                : new Proxy(value, this.handler(tracer, nestedPath))
+                : new Proxy(value, this.handler(tracer, key))
         }
 
         /**
@@ -129,17 +139,17 @@ class Boutique {
          * @returns {boolean}
          */
         const set = (_, prop, value) => {
-            return !!tracer.push([`${path}.${prop}`, value])
+            return !!tracer.push({ key: `${path}.${prop}`, value })
         }
 
         return { get, set }
     }
 
     /**
-     * @returns {{state:object, tracer:any[]}}
+     * @returns {{state:KeyedObject, tracer:ProxyTrace[]}}
      */
     get proxy() {
-        /** @type {any[]} */
+        /** @type {ProxyTrace[]} */
         const tracer = []
         return { state: new Proxy(this.state, this.handler(tracer)), tracer }
     }

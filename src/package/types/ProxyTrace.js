@@ -9,29 +9,27 @@
 //      - <https://spdx.org/licenses/MIT>
 
 /**
- * @file Redaction listener type declaration.
+ * @file Type declaration for proxy trace objects.
  * @author James Reid
  */
 
 // @ts-check
 
-// @@imports-types
-/* eslint-disable no-unused-vars -- Types only used in comments. */
-import { listenerCb } from "./callbacks.js"
-/* eslint-enable no-unused-vars -- Close disable-enable pair. */
+// @@no-imports
 
 // @@body
 /**
- * Redaction listener type.
+ * Proxy trace with required string key for getter handler, and optional any
+ * type value for setter handler.
  *
- * @typedef {object} RedactionListener
- * @property {listenerCb} func
- * @property {string[]} deps
+ * @typedef {object} ProxyTrace
+ * @property {string} key
+ * @property {any} [value]
  */
 
 // @@exports
 /**
  * @ignore
- * @type {RedactionListener}
+ * @type {ProxyTrace}
  */
-export let RedactionListener
+export let ProxyTrace

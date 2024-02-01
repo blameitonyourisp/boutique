@@ -9,29 +9,24 @@
 //      - <https://spdx.org/licenses/MIT>
 
 /**
- * @file Redaction listener type declaration.
+ * @file Type declaration for generic keyed object.
  * @author James Reid
  */
 
 // @ts-check
 
-// @@imports-types
-/* eslint-disable no-unused-vars -- Types only used in comments. */
-import { listenerCb } from "./callbacks.js"
-/* eslint-enable no-unused-vars -- Close disable-enable pair. */
+// @@no-imports
 
 // @@body
 /**
- * Redaction listener type.
+ * Keyed object with unknown string keys.
  *
- * @typedef {object} RedactionListener
- * @property {listenerCb} func
- * @property {string[]} deps
+ * @typedef {Object.<string,any>} KeyedObject
  */
 
 // @@exports
 /**
  * @ignore
- * @type {RedactionListener}
+ * @type {KeyedObject}
  */
-export let RedactionListener
+export let KeyedObject
