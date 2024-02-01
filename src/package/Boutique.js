@@ -123,8 +123,9 @@ class Boutique {
          */
         const get = (target, prop) => {
             const key = `${path}.${prop}`
-            path !== "" ? tracer.splice(- 1, 1, { key })
-                : tracer.push({ key })
+            path && key.includes(tracer[0].key)
+                ? tracer.splice(0, 1, { key })
+                : tracer.unshift({ key })
             const value = target[prop]
             return typeof value !== "object" ? value
                 : new Proxy(value, this.handler(tracer, key))
