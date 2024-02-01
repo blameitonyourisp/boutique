@@ -22,14 +22,6 @@ import { KeyedObject } from "./KeyedObject.js"
 
 // @@body
 /**
- * Listener callback.
- *
- * @callback listenerCb
- * @param {KeyedObject} detail
- * @returns {void}
- */
-
-/**
  * Listener generator callback.
  *
  * @callback listenerInitCb
@@ -38,9 +30,9 @@ import { KeyedObject } from "./KeyedObject.js"
  */
 
 /**
- * Redaction callback
+ * Listener callback.
  *
- * @callback redactionCb
+ * @callback listenerCb
  * @param {KeyedObject} detail
  * @returns {void}
  */
@@ -54,13 +46,15 @@ import { KeyedObject } from "./KeyedObject.js"
  * @returns {KeyedObject}
  */
 
-// @@exports
 /**
- * @ignore
- * @type {listenerCb}
+ * Redaction callback
+ *
+ * @callback redactionCb
+ * @param {KeyedObject} [detail]
+ * @returns {void}
  */
-export let listenerCb
 
+// @@exports
 /**
  * @ignore
  * @type {listenerInitCb}
@@ -69,12 +63,18 @@ export let listenerInitCb
 
 /**
  * @ignore
- * @type {redactionCb}
+ * @type {listenerCb}
  */
-export let redactionCb
+export let listenerCb
 
 /**
  * @ignore
  * @type {redactionInitCb}
  */
 export let redactionInitCb
+
+/**
+ * @ignore
+ * @type {redactionCb}
+ */
+export let redactionCb
