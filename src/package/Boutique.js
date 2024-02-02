@@ -115,14 +115,14 @@ class Boutique {
      *
      * @param {ProxyTrace[]} tracer
      * @param {string} path
-     * @returns {ProxyHandler<KeyedObject>}
+     * @returns {ProxyHandler.<KeyedObject>}
      */
     handler(tracer, path = "") {
         /**
          *
          * @param {KeyedObject} target
          * @param {string} prop
-         * @returns {KeyedObject|ProxyHandler<KeyedObject>}
+         * @returns {KeyedObject|ProxyHandler.<KeyedObject>}
          */
         const get = (target, prop) => {
             const key = `${path}.${prop}`

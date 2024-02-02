@@ -9,7 +9,7 @@
 //      - <https://spdx.org/licenses/MIT>
 
 /**
- * @file Package entrypoint.
+ * @file Export utilities.
  * @author James Reid
  */
 
@@ -20,5 +20,4 @@
 // @@no-body
 
 // @@exports
-export * from "./Boutique.js"
-export * from "./utils/index.js"
+export * from "./clone.js"
