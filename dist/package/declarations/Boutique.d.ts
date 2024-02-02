@@ -1,59 +1,66 @@
 export class Boutique {
     /**
      *
-     * @param {any} state
+     * @param {KeyedObject} state
      */
-    constructor(state: any);
+    constructor(state: KeyedObject);
     /** @type {Object.<string,RedactionListener[]>} */
-    events: {
+    evs: {
         [x: string]: RedactionListener[];
     };
-    state: any;
+    state: {
+        [x: string]: any;
+    };
     /**
      *
-     * @param {(state:any, detail:any) => any} callback
-     * @returns {(detail:any) => void}
+     * @param {redactionInitCb} callback
+     * @returns {redactionCb}
      */
-    createRedaction(callback: (state: any, detail: any) => any): (detail: any) => void;
+    createRedaction(callback: redactionInitCb): redactionCb;
     /**
      *
-     * @param {*} callback
+     * @param {listenerInitCb} callback
      * @returns {RedactionListener}
      */
-    createRedactionListener(callback: any): RedactionListener;
+    createListener(callback: listenerInitCb): RedactionListener;
     /**
      *
      * @param {RedactionListener} listener
      * @returns {void}
      */
-    addRedactionListener(listener: RedactionListener): void;
+    addListener(listener: RedactionListener): void;
     /**
      *
      * @param {RedactionListener} listener
      * @returns {void}
      */
-    removeRedactionListener(listener: RedactionListener): void;
+    removeListener(listener: RedactionListener): void;
     /**
      *
-     * @param {[string, any][]} tracer
-     * @param {*} detail
+     * @param {ProxyTrace[]} tracer
+     * @param {KeyedObject|void} detail
      * @param {RedactionListener[]} listeners
      * @returns {void}
      */
-    redact(tracer: [string, any][], detail: any, listeners?: RedactionListener[]): void;
+    redact(tracer: ProxyTrace[], detail: KeyedObject | void, listeners?: RedactionListener[]): void;
     /**
      *
-     * @param {any[]} tracer
+     * @param {ProxyTrace[]} tracer
      * @param {string} path
-     * @returns {ProxyHandler<object>}
+     * @returns {ProxyHandler.<KeyedObject>}
      */
-    handler(tracer: any[], path?: string): ProxyHandler<object>;
+    handler(tracer: ProxyTrace[], path?: string): ProxyHandler<KeyedObject>;
     /**
-     * @returns {{state:object, tracer:any[]}}
+     * @returns {{state:KeyedObject, tracer:ProxyTrace[]}}
      */
     get proxy(): {
-        state: object;
-        tracer: any[];
+        state: KeyedObject;
+        tracer: ProxyTrace[];
     };
 }
 import { RedactionListener } from "./types/index.js";
+import { redactionInitCb } from "./types/index.js";
+import { redactionCb } from "./types/index.js";
+import { listenerInitCb } from "./types/index.js";
+import { ProxyTrace } from "./types/index.js";
+import { KeyedObject } from "./types/index.js";

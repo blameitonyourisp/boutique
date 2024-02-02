@@ -2,18 +2,14 @@
  * Redaction listener type.
  */
 export type RedactionListener = {
-    func: (detail: any) => void;
+    func: listenerCb;
     deps: string[];
 };
-/**
- * @file Redaction listener type declaration.
- * @author James Reid
- */
 /**
  * Redaction listener type.
  *
  * @typedef {object} RedactionListener
- * @property {(detail:any) => void} func
+ * @property {listenerCb} func
  * @property {string[]} deps
  */
 /**
@@ -21,3 +17,4 @@ export type RedactionListener = {
  * @type {RedactionListener}
  */
 export let RedactionListener: RedactionListener;
+import { listenerCb } from "./callbacks.js";

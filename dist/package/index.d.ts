@@ -1,19 +1,135 @@
 /**
+ * Keyed object with unknown string keys.
+ */
+type KeyedObject = {
+    [x: string]: any;
+};
+/**
+ * @file Type declaration for generic keyed object.
+ * @author James Reid
+ */
+/**
+ * Keyed object with unknown string keys.
+ *
+ * @typedef {Object.<string,any>} KeyedObject
+ */
+/**
+ * @ignore
+ * @type {KeyedObject}
+ */
+declare let KeyedObject: KeyedObject;
+
+/**
+ * Listener generator callback.
+ */
+type listenerInitCb = (state: KeyedObject, detail?: void | {
+    [x: string]: any;
+} | undefined) => listenerCb;
+/**
+ * Listener generator callback.
+ *
+ * @callback listenerInitCb
+ * @param {KeyedObject} state
+ * @param {KeyedObject|void} [detail]
+ * @returns {listenerCb}
+ */
+/**
+ * Listener callback.
+ *
+ * @callback listenerCb
+ * @param {KeyedObject|void} detail
+ * @returns {void}
+ */
+/**
+ * Redaction generator callback.
+ *
+ * @callback redactionInitCb
+ * @param {KeyedObject} state
+ * @param {KeyedObject} [detail]
+ * @returns {KeyedObject|void}
+ */
+/**
+ * Redaction callback
+ *
+ * @callback redactionCb
+ * @param {KeyedObject} [detail]
+ * @returns {void}
+ */
+/**
+ * @ignore
+ * @type {listenerInitCb}
+ */
+declare let listenerInitCb: listenerInitCb;
+/**
+ * Listener callback.
+ */
+type listenerCb = (detail: KeyedObject | void) => void;
+/**
+ * @ignore
+ * @type {listenerCb}
+ */
+declare let listenerCb: listenerCb;
+/**
+ * Redaction generator callback.
+ */
+type redactionInitCb = (state: KeyedObject, detail?: {
+    [x: string]: any;
+} | undefined) => KeyedObject | void;
+/**
+ * @ignore
+ * @type {redactionInitCb}
+ */
+declare let redactionInitCb: redactionInitCb;
+/**
+ * Redaction callback
+ */
+type redactionCb = (detail?: {
+    [x: string]: any;
+} | undefined) => void;
+/**
+ * @ignore
+ * @type {redactionCb}
+ */
+declare let redactionCb: redactionCb;
+
+/**
+ * Proxy trace with required string key for getter handler, and optional any
+ * type value for setter handler.
+ */
+type ProxyTrace = {
+    key: string;
+    value?: any;
+};
+/**
+ * @file Type declaration for proxy trace objects.
+ * @author James Reid
+ */
+/**
+ * Proxy trace with required string key for getter handler, and optional any
+ * type value for setter handler.
+ *
+ * @typedef {object} ProxyTrace
+ * @property {string} key
+ * @property {any} [value]
+ */
+/**
+ * @ignore
+ * @type {ProxyTrace}
+ */
+declare let ProxyTrace: ProxyTrace;
+
+/**
  * Redaction listener type.
  */
 type RedactionListener = {
-    func: (detail: any) => void;
+    func: listenerCb;
     deps: string[];
 };
-/**
- * @file Redaction listener type declaration.
- * @author James Reid
- */
 /**
  * Redaction listener type.
  *
  * @typedef {object} RedactionListener
- * @property {(detail:any) => void} func
+ * @property {listenerCb} func
  * @property {string[]} deps
  */
 /**
@@ -25,60 +141,69 @@ declare let RedactionListener: RedactionListener;
 declare class Boutique {
     /**
      *
-     * @param {any} state
+     * @param {KeyedObject} state
      */
-    constructor(state: any);
+    constructor(state: KeyedObject);
     /** @type {Object.<string,RedactionListener[]>} */
-    events: {
+    evs: {
         [x: string]: RedactionListener[];
     };
-    state: any;
+    state: {
+        [x: string]: any;
+    };
     /**
      *
-     * @param {(state:any, detail:any) => any} callback
-     * @returns {(detail:any) => void}
+     * @param {redactionInitCb} callback
+     * @returns {redactionCb}
      */
-    createRedaction(callback: (state: any, detail: any) => any): (detail: any) => void;
+    createRedaction(callback: redactionInitCb): redactionCb;
     /**
      *
-     * @param {*} callback
+     * @param {listenerInitCb} callback
      * @returns {RedactionListener}
      */
-    createRedactionListener(callback: any): RedactionListener;
+    createListener(callback: listenerInitCb): RedactionListener;
     /**
      *
      * @param {RedactionListener} listener
      * @returns {void}
      */
-    addRedactionListener(listener: RedactionListener): void;
+    addListener(listener: RedactionListener): void;
     /**
      *
      * @param {RedactionListener} listener
      * @returns {void}
      */
-    removeRedactionListener(listener: RedactionListener): void;
+    removeListener(listener: RedactionListener): void;
     /**
      *
-     * @param {[string, any][]} tracer
-     * @param {*} detail
+     * @param {ProxyTrace[]} tracer
+     * @param {KeyedObject|void} detail
      * @param {RedactionListener[]} listeners
      * @returns {void}
      */
-    redact(tracer: [string, any][], detail: any, listeners?: RedactionListener[]): void;
+    redact(tracer: ProxyTrace[], detail: KeyedObject | void, listeners?: RedactionListener[]): void;
     /**
      *
-     * @param {any[]} tracer
+     * @param {ProxyTrace[]} tracer
      * @param {string} path
-     * @returns {ProxyHandler<object>}
+     * @returns {ProxyHandler.<KeyedObject>}
      */
-    handler(tracer: any[], path?: string): ProxyHandler<object>;
+    handler(tracer: ProxyTrace[], path?: string): ProxyHandler<KeyedObject>;
     /**
-     * @returns {{state:object, tracer:any[]}}
+     * @returns {{state:KeyedObject, tracer:ProxyTrace[]}}
      */
     get proxy(): {
-        state: object;
-        tracer: any[];
+        state: KeyedObject;
+        tracer: ProxyTrace[];
     };
 }
 
-export { Boutique };
+/**
+ *
+ * @param {KeyedObject} proxy
+ * @returns {KeyedObject}
+ */
+declare function proxyToObject(proxy: KeyedObject): KeyedObject;
+
+export { Boutique, proxyToObject };
