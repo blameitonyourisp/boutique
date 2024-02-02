@@ -56,8 +56,11 @@ class Boutique {
      */
     createListener(callback) {
         const { state, tracer } = this.proxy
+        // const func = (/** @type {KeyedObject|void} */ detail) => {
+        //     return callback(state)(detail)
+        // }
         const func = (/** @type {KeyedObject|void} */ detail) => {
-            return callback(state)(detail)
+            return callback(state, detail)()
         }
         callback(state)
         return { func, deps: tracer.map(trace => trace.key) }

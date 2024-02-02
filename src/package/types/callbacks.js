@@ -26,6 +26,7 @@ import { KeyedObject } from "./KeyedObject.js"
  *
  * @callback listenerInitCb
  * @param {KeyedObject} state
+ * @param {KeyedObject|void} [detail]
  * @returns {listenerCb}
  */
 
