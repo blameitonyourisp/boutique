@@ -28,6 +28,7 @@ This repository is hosted on [github](https://github.com), if you're already rea
     - [Mutation Rules](#mutation-rules)
     - [Proxies](#proxies)
     - [Redaction Detail](#redaction-detail)
+    - [CommonJS](#commonjs)
 - [Testing](#testing)
 - [Documentation](#documentation)
 - [Roadmap](#roadmap)
@@ -503,6 +504,15 @@ const redaction = store.createRedaction((state, detail) => {
     // source to handler to listener.
     return { ...detail, someImportantValue: 42 }
 })
+```
+
+### CommonJS
+
+This package also provides a commonjs export for backwards compatibility with commonjs module syntax `require` imports. Please see the following code block for more information: 
+
+```javascript
+// Import boutique using commonjs require syntax.
+const { Boutique } = require("@blameitonyourisp/boutique/COMMON_JS")
 ```
 
 ## Testing
