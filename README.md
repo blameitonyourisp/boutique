@@ -59,7 +59,7 @@ Boutique is available as a package on [npm](https://www.npmjs.com/), please see 
 This package may be installed from [npm](https://www.npmjs.com/) in any appropriate javascript or typescript project. To install the package, please use the following command:
 
 ```bash
-# install the boutique (recommended as a normal dependency)
+# install boutique (recommended as a normal dependency)
 npm install --save @blameitonyourisp/boutique
 ```
 
