@@ -18,9 +18,7 @@
     "author": "James Reid",
     "license": "MIT",
     "type": "module",
-    "bin": {
-        "dist/package/index.js": "./dist/bin/index.js"
-    },
+    "bin": {},
     "main": "./dist/package/index.js",
     "exports": {
         ".": "./dist/package/index.js",

@@ -44,7 +44,7 @@ Approximate download size of repository, code files within repository, compresse
 ## Description
 
 <!-- Insert a longer description of the repository on the lines below. -->
-Boutique is a small and fashionable store for event and state management implemented in just 987 bytes of minified vanilla javascript. After gzip compression, boutique comes in at just 529 bytes.
+Boutique is a small and fashionable store for event and state management implemented in just 989 bytes of minified vanilla javascript. After gzip compression, boutique comes in at just 535 bytes.
 
 Boutique is implemented using [proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy). As such some legacy browsers such as [internet explorer](https://en.wikipedia.org/wiki/Internet_Explorer_11) will *not* support boutique state and event management. Please check [caniuse proxy](https://caniuse.com/?search=proxy) for more information on compatibility with legacy browsers and older versions of current browsers.
 

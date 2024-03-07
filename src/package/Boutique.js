@@ -45,8 +45,10 @@ class Boutique {
      * @returns {redactionCb}
      */
     createRedaction(callback) {
-        const { state, tracer } = this.proxy
-        return detail => this.redact(tracer, callback(state, detail))
+        return detail => {
+            const { state, tracer } = this.proxy
+            this.redact(tracer, callback(state, detail))
+        }
     }
 
     /**
@@ -56,9 +58,6 @@ class Boutique {
      */
     createListener(callback) {
         const { state, tracer } = this.proxy
-        // const func = (/** @type {KeyedObject|void} */ detail) => {
-        //     return callback(state)(detail)
-        // }
         const func = (/** @type {KeyedObject|void} */ detail) => {
             return callback(state, detail)()
         }
