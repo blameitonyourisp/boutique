@@ -1,6 +1,6 @@
 {
     "name": "@blameitonyourisp/boutique",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A small and fashionable store for state and event management.",
     "keywords": [
         "state-management",
