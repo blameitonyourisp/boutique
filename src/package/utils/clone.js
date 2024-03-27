@@ -27,13 +27,33 @@ import { KeyedObject } from "../types/index.js"
  * @returns {KeyedObject}
  */
 const proxyToObject = proxy => {
-    /** @type {KeyedObject} */
-    const obj = {}
+    // Return call to array function if passed proxy is an array proxy.
+    if (proxy instanceof Array) { return proxyToArray(proxy) }
+
+    // Reconstruct original object from nested proxy.
+    const object = /** @type {KeyedObject} */ ({})
     for (const key in proxy) {
-        typeof proxy[key] === "object" ? obj[key] = proxyToObject(proxy[key])
-            : obj[key] = proxy[key]
+        typeof proxy[key] === "object" ? object[key] = proxyToObject(proxy[key])
+            : object[key] = proxy[key]
     }
-    return obj
+
+    return object
+}
+
+/**
+ *
+ * @param {any[]} proxy
+ * @returns {any[]}
+ */
+const proxyToArray = proxy => {
+    // Reconstruct original object from nested proxy.
+    const array = /** @type {any[]} */ ([])
+    proxy.forEach(entry => {
+        typeof entry === "object" ? array.push(proxyToObject(entry))
+            : array.push(entry)
+    })
+
+    return array
 }
 
 // @@exports
