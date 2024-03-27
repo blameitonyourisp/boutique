@@ -3,7 +3,7 @@
     <img width="605" src="https://img.shields.io/badge/blameitonyourisp-13-inactive?style=for-the-badge&labelColor=BAC99C&color=779966&logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjwhLS0gQ3JlYXRlZCB3aXRoIFZlY3Rvcm5hdG9yIChodHRwOi8vdmVjdG9ybmF0b3IuaW8vKSAtLT4KPHN2ZyBoZWlnaHQ9IjEwMCUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgc3R5bGU9ImZpbGwtcnVsZTpub256ZXJvO2NsaXAtcnVsZTpldmVub2RkO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgd2lkdGg9IjEwMCUiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6dmVjdG9ybmF0b3I9Imh0dHA6Ly92ZWN0b3JuYXRvci5pbyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgo8ZGVmcy8+CjxnIGlkPSJMYXllci01IiB2ZWN0b3JuYXRvcjpsYXllck5hbWU9IkxheWVyIDUiPgo8cGF0aCBkPSJNMTc1IDBMODQ5IDBDOTQ1LjY1IDAgMTAyNCA3OC4zNTAyIDEwMjQgMTc1TDEwMjQgODQ5QzEwMjQgOTQ1LjY1IDk0NS42NSAxMDI0IDg0OSAxMDI0TDE3NSAxMDI0Qzc4LjM1MDIgMTAyNCAwIDk0NS42NSAwIDg0OUwwIDE3NUMwIDc4LjM1MDIgNzguMzUwMiAwIDE3NSAwWiIgZmlsbD0iI2U5ZTdlMiIgZmlsbC1ydWxlPSJub256ZXJvIiBvcGFjaXR5PSIwIiBzdHJva2U9Im5vbmUiLz4KPHBhdGggZD0iTTMwMiAzODJDMzAyIDQzNy4yMjggMjU3LjIyOCA0ODIgMjAyIDQ4MkwyMDIgNjQyQzIzNy40MzcgNjQyIDI3MS4yMTYgNjM0Ljg2OSAzMDIgNjIyLjAzMUwzMDIgOTUyTDQ2MiA5NTJMNDYyIDM4MkwzMDIgMzgyWiIgZmlsbD0iIzZmNGRiMyIgZmlsbC1ydWxlPSJub256ZXJvIiBvcGFjaXR5PSIxIiBzdHJva2U9Im5vbmUiLz4KPHBhdGggZD0iTTU2MiA3MkM0MTguNDA2IDcxLjk5OTkgMzAyIDE4OC40MDUgMzAyIDMzMkw0NjIgMzMyQzQ2MiAyNzYuNzcyIDUwNi43NzIgMjMyIDU2MiAyMzJDNjE3LjIyOCAyMzIgNjYyIDI3Ni43NzIgNjYyIDMzMkM2NjIgMzg3LjIyOCA2MTcuMjI4IDQzMiA1NjIgNDMyTDUxMiA0MzJMNTEyIDU5Mkw1NjIgNTkyQzYxNy4yMjggNTkyIDY2MiA2MzYuNzcyIDY2MiA2OTJDNjYyIDc0Ny4yMjggNjE3LjIyOCA3OTIgNTYyIDc5Mkw1MTIgNzkyTDUxMiA5NTJMNTYyIDk1MkM3MDUuNTk0IDk1MiA4MjIgODM1LjU5NSA4MjIgNjkyQzgyMiA2MjIuMDM2IDc5NC4xMzcgNTU4LjczNiA3NDkuMTg4IDUxMkM3OTQuMTM3IDQ2NS4yNjQgODIyIDQwMS45NjQgODIyIDMzMkM4MjIgMTg4LjQwNiA3MDUuNTk1IDcyIDU2MiA3MloiIGZpbGw9IiM3Nzk5NjYiIGZpbGwtcnVsZT0ibm9uemVybyIgb3BhY2l0eT0iMSIgc3Ryb2tlPSJub25lIi8+CjxwYXRoIGQ9Ik0zMDIgMzgyQzMwMiA0MzcuMjI4IDI1Ny4yMjggNDgyIDIwMiA0ODJMMjAyIDY0MkMzNDUuNTk0IDY0MiA0NjIgNTI1LjU5NCA0NjIgMzgyTDMwMiAzODJaIiBmaWxsPSIjNGYzYTc4IiBmaWxsLXJ1bGU9Im5vbnplcm8iIG9wYWNpdHk9IjEiIHN0cm9rZT0ibm9uZSIvPgo8cGF0aCBkPSJNNDYyIDMzMkM0NjIgMjc2Ljc3MiA1MDYuNzcyIDIzMiA1NjIgMjMyTDU2MiA3MkM0MTguNDA2IDcxLjk5OTkgMzAyIDE4OC40MDYgMzAyIDMzMkw0NjIgMzMyWiIgZmlsbD0iIzQxNTg0MSIgZmlsbC1ydWxlPSJub256ZXJvIiBvcGFjaXR5PSIxIiBzdHJva2U9Im5vbmUiLz4KPC9nPgo8L3N2Zz4K">
 </p>
 
-# boutique
+# Boutique
 
 <!-- Insert a brief description of the repository on the lines below. -->
 A small and fashionable store for event and state management implemented in under 1KB of vanilla javascript.
@@ -23,6 +23,7 @@ This repository is hosted on [github](https://github.com), if you're already rea
     - [Basic Usage](#basic-usage)
 - [Usage](#usage)
     - [State](#state)
+        - [Maps and Sets](#maps-and-sets)
     - [Redactions](#redactions)
     - [Listeners](#listeners)
     - [Mutation Rules](#mutation-rules)
@@ -176,6 +177,16 @@ As a general rule, you should design your application with a 1:1 relationship be
     - Be granular (changing the smallest part of state as possible)
     - Change specific property values rather than updating entire nested state objects (e.g. change `state.address.street`, not the entire `state.address` object)
 - Where listeners and redactions are less granular than this, try to match the granularity of both the listener and the redaction (i.e. if the redaction changes the `state.address` object entirely, then the listener should follow this granularity, and be dependent on the entire `state.address` object)
+
+#### Maps and Sets
+
+Unfortunately since `Boutique` proxies all state properties including nested properties, JavaScript [Maps](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) and [Sets](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) *cannot* currently be used within the store state object since it is not possible to proxy a Map or Set without breaking it. Trying to access any method (such as `has` etc.) of a proxied Map or Set within the state object will result in a `<method> called on incompatible Proxy` error. For more information on this issue, please [see here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Called_on_incompatible_type).
+
+---
+
+**WARNING** An exception for preventing proxying of Maps or Sets within the state object *may* be added in future versions, but at the moment the issue described above should be considered as a *limitation* of the state and event management provided by `Boutique`. If your application currently requires reliable tracking of Map or Set objects in its state, please *do not* use this package.
+
+---
 
 ### Redactions
 
@@ -530,7 +541,7 @@ This repository is documented using a mixture of inline comments, jsdoc, and cus
 <!-- Update this section with any new projects on the repository roadmap. -->
 If you find a bug or think there is a specific feature that should be added or changed, please file a bug report or feature request using this repository's issue tracker. Otherwise, please see below for proposed new features which may be added in later updates:
 
-- This repository currently has no projects on its roadmap
+- Add some opt-in functionality to support [Maps](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) and [Sets](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) within the store state object by preventing them from being proxied, and providing extra methods to detect when a Map or Set is changed
 
 ## Attributions
 

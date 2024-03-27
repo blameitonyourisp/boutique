@@ -1,6 +1,6 @@
 ---
-last-hash: 06eab659955651166ebc73704f663779ce59141a
-last-tag: v0.0.1
+last-hash: 55f0f30cda9dd407f21cc0301553a584b5c56e9a
+last-tag: v1.0.0
 ---
 
 <p align="center">
@@ -20,6 +20,36 @@ Thank you for reading the changelog for this repository. Release notes in this r
 
 See below for release notes for each relevant version or release in this project. Please note that for convenience, release notes are ordered from most recent release/version *first* to oldest release or version *last*. If no release notes are listed below, then most likely the maintainer(s) of this repository have not yet released a first release or version.
 <!-- LOG_START -->
+
+## [v1.0.0](https://github.com/blameitonyourisp/boutique/tags) (2024-03-27) [55f0f30](https://github.com/blameitonyourisp/boutique/tree/55f0f30cda9dd407f21cc0301553a584b5c56e9a)
+
+<!-- Include a brief summary of the release on the line(s) below, including bullet points of the release highlights. -->
+Feature complete `v1.0.0` release including bug fixes from independent testing.
+
+### Added
+
+- *Minor*: Add utility to deep clone state proxy ([e7a6522](https://github.com/blameitonyourisp/boutique/tree/e7a6522a105133973b7f0e635233852c0d353cfe))
+- *Minor*: Add state and event manager ([9486b3c](https://github.com/blameitonyourisp/boutique/tree/9486b3cdc96c6cf050444e118ec631ac8b1a5249))
+
+### Rewritten
+
+- **BREAKING CHANGE**: Rewrite listener to take detail in top level ([a282a11](https://github.com/blameitonyourisp/boutique/tree/a282a11c5ccc844b6a6b1b7a9d9d1332473025a6))
+    - WHY: Maintain consistency with createRedaction method.
+- **BREAKING CHANGE**: Rewrite proxy tracer to use fixed type ([a8e4ef7](https://github.com/blameitonyourisp/boutique/tree/a8e4ef7268e4b3348089097f473142b4eabab3ce))
+
+### Changed
+
+- *Minor*: Change store to allow detail to be undefined ([edf16c7](https://github.com/blameitonyourisp/boutique/tree/edf16c777589b2b806473c1fda1b9b7cc1934797))
+
+### Fixed
+
+- *Patch*: Fix repeated redactions bug ([ce2eb80](https://github.com/blameitonyourisp/boutique/tree/ce2eb80a3320f4ac19586ae7b71f01a00da55ead))
+- *Patch*: Fix redaction callback optional param type ([aa23b81](https://github.com/blameitonyourisp/boutique/tree/aa23b814a0fbab5f6a089ed4ce1f4d26a0852428))
+- *Patch*: Fix proxy to object nested array bug ([c151ad4](https://github.com/blameitonyourisp/boutique/tree/c151ad4d157b7e9de815bd4d825a706cac1f57ba))
+
+### Dependencies
+
+- *Minor*: Update admin scripts from template repository ([3326714](https://github.com/blameitonyourisp/boutique/tree/3326714f3b67b78dbd62a70fb9e5c0430e5e31aa))
 
 <!-- LOG_END -->
 ## Changelog Notes
